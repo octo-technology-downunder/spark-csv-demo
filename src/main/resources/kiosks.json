@@ -1,0 +1,14 @@
+{"kioskId":111,"customerId":1,"errorType": 1,"numberOfErrors": 10}
+{"kioskId":112,"customerId":2,"errorType": 2,"numberOfErrors": 9}
+{"kioskId":113,"customerId":3,"errorType": 3,"numberOfErrors": 8}
+{"kioskId":114,"customerId":4,"errorType": 4,"numberOfErrors": 7}
+{"kioskId":115,"customerId":1,"errorType": 2,"numberOfErrors": 6}
+{"kioskId":116,"customerId":1,"errorType": 2,"numberOfErrors": 5}
+{"kioskId":117,"customerId":1,"errorType": 2,"numberOfErrors": 5}
+{"kioskId":118,"customerId":1,"errorType": 2,"numberOfErrors": 5}
+{"kioskId":119,"customerId":2,"errorType": 3,"numberOfErrors": 4}
+{"kioskId":120,"customerId":1,"errorType": 2,"numberOfErrors": 3}
+{"kioskId":121,"customerId":1,"errorType": 4,"numberOfErrors": 2}
+{"kioskId":122,"customerId":1,"errorType": 2,"numberOfErrors": 2}
+{"kioskId":123,"customerId":1,"errorType": 4,"numberOfErrors": 1}
+{"kioskId":124,"customerId":1,"errorType": 2,"numberOfErrors": 1}
