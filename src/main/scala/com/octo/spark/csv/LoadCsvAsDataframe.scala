@@ -12,9 +12,14 @@ object LoadCsvAsDataframe {
     val sparkConf = new SparkConf()
                       .setAppName("LoadCsvAsDataframe")
                       .setMaster("local[*]")
-    val sqlContext = new SQLContext(new SparkContext(sparkConf))
 
-    val dataFrame = sqlContext.load("com.databricks.spark.csv", Map("path" -> CSV_FILE, "header" -> "true"))
+    val sqlContext = new SQLContext(new SparkContext(sparkConf))
+    val dataFrame = sqlContext
+      .read
+      .options(Map("path" -> CSV_FILE, "header" -> "true"))
+      .format("com.databricks.spark.csv")
+      .load()
+
     dataFrame.printSchema()
     dataFrame.registerTempTable("kiosksErrors")
 

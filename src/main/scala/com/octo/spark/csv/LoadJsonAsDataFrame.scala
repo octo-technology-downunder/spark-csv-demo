@@ -12,9 +12,14 @@ object LoadJsonAsDataFrame {
     val sparkConf = new SparkConf()
                           .setAppName("LoadJsonAsDataFrame")
                           .setMaster("local[*]")
-    val sqlContext = new SQLContext(new SparkContext(sparkConf))
 
-    val dataFrame = sqlContext.load("org.apache.spark.sql.json", Map("path" -> JSON_FILE))
+    val sqlContext = new SQLContext(new SparkContext(sparkConf))
+    val dataFrame = sqlContext
+      .read
+      .options(Map("path" -> JSON_FILE, "header" -> "true"))
+      .format("org.apache.spark.sql.json")
+      .load()
+
     dataFrame.printSchema()
     dataFrame.registerTempTable("kiosksErrors")
 

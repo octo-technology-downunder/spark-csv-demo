@@ -12,10 +12,20 @@ object ExportJsonAsCsv {
     val sparkConf = new SparkConf()
                       .setAppName("ExportJsonAsCsv")
                       .setMaster("local[*]")
-    val sqlContext = new SQLContext(new SparkContext(sparkConf))
 
-    val dataFrame = sqlContext.load("org.apache.spark.sql.json", Map("path" -> JSON_FILE))
-    dataFrame.save("com.databricks.spark.csv", SaveMode.ErrorIfExists, Map("path" -> CSV_DEST_DIR, "header" -> "true"))
+    val sqlContext = new SQLContext(new SparkContext(sparkConf))
+    val dataFrame = sqlContext
+      .read
+      .options(Map("path" -> JSON_FILE))
+      .format("org.apache.spark.sql.json")
+      .load()
+
+    dataFrame
+      .write
+      .format("com.databricks.spark.csv")
+      .mode(SaveMode.ErrorIfExists)
+      .options(Map("path" -> CSV_DEST_DIR, "header" -> "true"))
+      .save()
   }
 
 }
